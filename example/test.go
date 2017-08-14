@@ -2,24 +2,14 @@ package main
 
 import (
 	"fmt"
+	"readline"
 )
 
-type Test int
+type Test1 int
 
-func (this *Test) Echo(msg string) {
-	fmt.Println(msg)
-}
-
-func (this *Test) f0() {
-	fmt.Println("f0")
-}
-
-func (this *Test) f1(p1 string) {
-	fmt.Print("f1 ")
-	fmt.Println(p1)
-}
-
-func (this *Test) f2(p1 string, p2 int) {
-	fmt.Print("f2 ")
-	fmt.Println(p1, p2)
+func (this *Test1) Echo(args readline.Args, reply *readline.Reply) error {
+	if len(args.A) > 0 {
+		fmt.Println(args.A[0])
+	}
+	return nil
 }
